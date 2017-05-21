@@ -1,47 +1,40 @@
 package com.example.android.soccercounter;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int mLocalGoals = 0;
-    private int mLocalRedCards = 0;
-    private int mLocalYellowCards = 0;
-    private int mLocalPenalties = 0;
-
-    private int mVisitorGoals = 0;
-    private int mVisitorRedCards = 0;
-    private int mVisitorYellowCards = 0;
-    private int mVisitorPenalties = 0;
-
-    private TextView mLocalGoals_TextView = null;
-    private TextView mLocalRedCards_TextView = null;
-    private TextView mLocalYellowCards_TextView = null;
-    private TextView mLocalPenalties_TextView = null;
-    private RadioGroup mLocalRadioGroup = null;
-
-    private TextView mVisitorGoals_TextView = null;
-    private TextView mVisitorRedCards_TextView = null;
-    private TextView mVisitorYellowCards_TextView = null;
-    private TextView mVisitorPenalties_TextView = null;
-    private RadioGroup mVisitorRadioGroup = null;
-
     // Constants for Saved Instance State
     private static final String LOCAL_GOALS = "lgl";
     private static final String LOCAL_REDCARDS = "lrc";
     private static final String LOCAL_YELLOWCARDS = "lyc";
     private static final String LOCAL_PENALTIES = "lpn";
-//    private static final String LOCAL_RADIO = "lrd";
     private static final String VISITOR_GOALS = "vgl";
     private static final String VISITOR_REDCARDS = "vrc";
     private static final String VISITOR_YELLOWCARDS = "vyc";
     private static final String VISITOR_PENALTIES = "vpn";
-//    private static final String VISITOR_RADIO = "vrd";
-
+    private int mLocalGoals = 0;
+    private int mLocalRedCards = 0;
+    private int mLocalYellowCards = 0;
+    private int mLocalPenalties = 0;
+    private int mVisitorGoals = 0;
+    private int mVisitorRedCards = 0;
+    private int mVisitorYellowCards = 0;
+    private int mVisitorPenalties = 0;
+    private TextView mLocalGoals_TextView = null;
+    private TextView mLocalRedCards_TextView = null;
+    private TextView mLocalYellowCards_TextView = null;
+    private TextView mLocalPenalties_TextView = null;
+    private RadioGroup mLocalRadioGroup = null;
+    private TextView mVisitorGoals_TextView = null;
+    private TextView mVisitorRedCards_TextView = null;
+    private TextView mVisitorYellowCards_TextView = null;
+    private TextView mVisitorPenalties_TextView = null;
+    private RadioGroup mVisitorRadioGroup = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +47,11 @@ public class MainActivity extends AppCompatActivity {
             mLocalRedCards = savedInstanceState.getInt(LOCAL_REDCARDS);
             mLocalYellowCards = savedInstanceState.getInt(LOCAL_YELLOWCARDS);
             mLocalPenalties = savedInstanceState.getInt(LOCAL_PENALTIES);
-//            mLocalRadioGroup.check(savedInstanceState.getInt(LOCAL_RADIO));
 
             mVisitorGoals = savedInstanceState.getInt(VISITOR_GOALS);
             mVisitorRedCards = savedInstanceState.getInt(VISITOR_REDCARDS);
             mVisitorYellowCards = savedInstanceState.getInt(VISITOR_YELLOWCARDS);
             mVisitorPenalties = savedInstanceState.getInt(VISITOR_PENALTIES);
-//            mVisitorRadioGroup.check(savedInstanceState.getInt(VISITOR_RADIO));
         }
 
         setContentView(R.layout.activity_main);
@@ -87,34 +78,24 @@ public class MainActivity extends AppCompatActivity {
     public void onSaveInstanceState(Bundle savedInstanceState) {
 
         // Save the current state
-//        int radioChecked;
-
         savedInstanceState.putInt(LOCAL_GOALS, mLocalGoals);
         savedInstanceState.putInt(LOCAL_REDCARDS, mLocalRedCards);
         savedInstanceState.putInt(LOCAL_YELLOWCARDS, mLocalYellowCards);
         savedInstanceState.putInt(LOCAL_PENALTIES, mLocalPenalties);
-/*
-        radioChecked = mLocalRadioGroup.getCheckedRadioButtonId();
-        savedInstanceState.putInt(LOCAL_RADIO, radioChecked);
-*/
-
         savedInstanceState.putInt(VISITOR_GOALS, mVisitorGoals);
         savedInstanceState.putInt(VISITOR_REDCARDS, mVisitorRedCards);
         savedInstanceState.putInt(VISITOR_YELLOWCARDS, mVisitorYellowCards);
         savedInstanceState.putInt(VISITOR_PENALTIES, mVisitorPenalties);
-/*
-        radioChecked = mVisitorRadioGroup.getCheckedRadioButtonId();
-        savedInstanceState.putInt(VISITOR_RADIO, radioChecked);
-*/
 
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
 
     }
 
-
-    /*
-    * Process any clicked button
+    /**
+     * Process any clicked button
+     *
+     * @param button The button that was clicked
      */
     public void onButtonClicked(View button) {
 
@@ -138,8 +119,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*
-    * Local Button clicked
+    /**
+     * Local Button clicked
+     *
+     * @param value The id for the radio button that was checked
      */
     private void processLocalButton(int value) {
         int radioChecked = mLocalRadioGroup.getCheckedRadioButtonId();
@@ -173,8 +156,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*
-    * Visitor  Button clicked
+    /**
+     * Visitor  Button clicked
+     *
+     * @param value The id for the radio button that was checked
      */
     private void processVisitorButton(int value) {
         int radioChecked = mVisitorRadioGroup.getCheckedRadioButtonId();
@@ -208,8 +193,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*
-    * Reset Button clicked
+    /**
+     * Reset Button clicked
      */
     private void processResetButton() {
         mLocalGoals = 0;
@@ -229,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /*
+    /**
      * Refresh all TextViews
      */
     private void refreshAll() {

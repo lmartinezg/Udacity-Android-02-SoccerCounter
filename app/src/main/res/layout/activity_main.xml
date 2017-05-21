@@ -7,14 +7,6 @@
     android:orientation="vertical"
     tools:context="com.example.android.soccercounter.MainActivity">
 
-    <!--
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-    -->
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -112,7 +104,9 @@
 
         </LinearLayout>
 
-        <LinearLayout style="@style/verticalLine"></LinearLayout>
+        <LinearLayout style="@style/verticalLine">
+
+        </LinearLayout>
 
         <LinearLayout style="@style/TeamLayout">
 
